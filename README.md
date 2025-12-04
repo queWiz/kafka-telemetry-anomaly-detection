@@ -28,6 +28,7 @@ The system follows a decoupled **Microservices Architecture**:
 docker-compose up -d
 
 *Wait for containers to become "Healthy".*
+```
 
 ### 2. Start the Backend Services
 (Open 3 separate terminals)
