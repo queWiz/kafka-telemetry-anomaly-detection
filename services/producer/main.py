@@ -8,11 +8,19 @@ from kafka import KafkaProducer
 KAFKA_TOPIC = "game_telemetry"
 KAFKA_SERVER = "localhost:9092"
 
-# 1. Setup Kafka Producer
-producer = KafkaProducer(
-    bootstrap_servers=KAFKA_SERVER,
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')
-)
+# 1. Setup Kafka Producer (With Retry Logic)
+producer = None
+while producer is None:
+    try:
+        print(f"⏳ Attempting to connect to Kafka at {KAFKA_SERVER}...")
+        producer = KafkaProducer(
+            bootstrap_servers=KAFKA_SERVER,
+            value_serializer=lambda v: json.dumps(v).encode('utf-8')
+        )
+        print("✅ Connected to Kafka!")
+    except Exception as e:
+        print("❌ Connection failed. Kafka might be starting up. Retrying in 3 seconds...")
+        time.sleep(3)
 
 # 2. Define our "Players"
 # We simulate a 5v5 match, but let's just track 5 players for now.
