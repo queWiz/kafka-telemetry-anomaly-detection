@@ -102,6 +102,14 @@ dist/
 # Mac system files
 .DS_Store
 
+# Ignore ML Artifacts
+*.pkl
+*.joblib
+
+# Ignore Node dependencies (Global safety)
+node_modules/
+npm-debug.log
+
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:
