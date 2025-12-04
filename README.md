@@ -26,9 +26,8 @@ The system follows a decoupled **Microservices Architecture**:
 ### 1. Start Infrastructure (Kafka & Zookeeper)
 ```bash
 docker-compose up -d
-
-*Wait for containers to become "Healthy".*
 ```
+*Wait for containers to become "Healthy".*
 
 ### 2. Start the Backend Services
 (Open 3 separate terminals)
