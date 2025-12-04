@@ -1,0 +1,7 @@
+kafka-python
+scikit-learn
+pandas
+numpy
+fastapi
+uvicorn[standard]
+websockets
